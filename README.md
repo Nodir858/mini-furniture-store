@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-DEMA : https://mini-furniture-store.vercel.app/
+DEMO : https://mini-furniture-store.vercel.app/
 
 # React + Vite
 
