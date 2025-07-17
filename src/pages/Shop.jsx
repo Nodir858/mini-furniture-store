@@ -8,6 +8,21 @@ import Modal from "../common/Modal";
 const Shop = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [item, setItem] = useState(products);
+
+  const categoryList = Array.from(
+    new Set(products.map((product) => product.category))
+  );
+
+  const brandsList = Array.from(
+    new Set(products.map((product) => product.brand))
+  );
+
+  const filterItems = (items) => {
+    const newItems = products.filter((newValue) => newValue.category === item);
+    setItem(newItems);
+  };
+
   const handleOpen = (productId) => {
     setIsModalOpen(productId);
   };
@@ -18,61 +33,76 @@ const Shop = () => {
 
   return (
     <>
-      <sidebar className="flex items-center mt-5">
-        <div className=" bg-amber-300 w-[25%] h-full">
-          <div className="my-4">
-            <h1 className="text-4xl font-semibold">Filter</h1>
-          </div>
-          <div>
-            <h1>Price</h1>
-            <div></div>
-          </div>
-        </div>
-      </sidebar>
-      <div className="w-[70%] m-auto">
-        <h1 className="text-center text-3xl font-extrabold uppercase mt-4">
-          You are in Kitchen
-        </h1>
-        <div className="grid grid-cols-4 gap-3">
-          {products.map((value, index) => (
-            <div key={index} className="mt-3">
-              <div className="overflow-hidden relative">
-                <div className="img relative">
-                  <div className="rounded-3xl">
-                    <img src={value.img} alt="img" className="rounded-3xl" />
+      <div className="flex">
+        <div className="w-full max-w-3xs">
+          <div className=" bg-amber-300 h-full ">
+            <div className="my-4">
+              <h1 className="text-4xl font-semibold text-center">Filter</h1>
+            </div>
+            <div>
+              <h1 className="text-center">By Category</h1>
+              <div className="text-center">
+                {categoryList.map((category, index) => (
+                  <div key={index}>
+                    <button>{category}</button>
                   </div>
-                  <div className="opacity-75 absolute top-0 right-0 m-4">
-                    <div className="bg-white p-2 rounded-full mb-2">
-                      <IoIosHeartEmpty></IoIosHeartEmpty>
-                    </div>
-                    <div className="bg-white p-2 rounded-full">
-                      <FaSearch></FaSearch>
-                    </div>
+                ))}
+              </div>
+              <div>
+                {brandsList.map((brands, index) => (
+                  <div key={index}>
+                    <button>{brands}</button>
                   </div>
-                  <div className="absolute bottom-0 right-0 bg-white p-2 rounded-s-2xl">
-                    <div className=" bg-black text-white h-8 w-8 grid place-items-center rounded-3xl">
-                      <button
-                        className="text-2xl"
-                        onClick={() => handleOpen(value.id)}
-                      >
-                        <BiCart />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-2">
-                  <p className="mb-2">{value.title}</p>
-                  <p>${value.price}</p>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
-        <Modal
-          data={products.find((item) => item.id === isModalOpen)}
-          isModalOpen={isModalOpen}
-          handleClose={handleClose}
-        ></Modal>
+        <div className="w-[70%] m-auto">
+          <h1 className="text-center text-3xl font-extrabold uppercase mt-4">
+            You are in Kitchen
+          </h1>
+          <div className="grid grid-cols-4 gap-3">
+            {products.map((value, index) => (
+              <div key={index} className="mt-3">
+                <div className="overflow-hidden relative">
+                  <div className="img relative">
+                    <div className="rounded-3xl">
+                      <img src={value.img} alt="img" className="rounded-3xl" />
+                    </div>
+                    <div className="opacity-75 absolute top-0 right-0 m-4">
+                      <div className="bg-white p-2 rounded-full mb-2">
+                        <IoIosHeartEmpty></IoIosHeartEmpty>
+                      </div>
+                      <div className="bg-white p-2 rounded-full">
+                        <FaSearch></FaSearch>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 bg-white p-2 rounded-s-2xl">
+                      <div className=" bg-black text-white h-8 w-8 grid place-items-center rounded-3xl">
+                        <button
+                          className="text-2xl"
+                          onClick={() => handleOpen(value.id)}
+                        >
+                          <BiCart />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-2">
+                    <p className="mb-2">{value.title}</p>
+                    <p>${value.price}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Modal
+            data={products.find((item) => item.id === isModalOpen)}
+            isModalOpen={isModalOpen}
+            handleClose={handleClose}
+          ></Modal>
+        </div>
       </div>
     </>
   );
