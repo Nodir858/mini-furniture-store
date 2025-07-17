@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DEMA : https://mini-furniture-store.vercel.app/
 
 # React + Vite
@@ -15,3 +16,6 @@ If you are developing a production application, we recommend using TypeScript wi
 <img width="1760" height="898" alt="image" src="https://github.com/user-attachments/assets/6788bf73-2e47-4eab-8bc8-b3ae276833b5" />
 <img width="1659" height="845" alt="image" src="https://github.com/user-attachments/assets/5ce3fa0e-604d-4733-9464-7c85e21f31ce" />
 <img width="1747" height="785" alt="image" src="https://github.com/user-attachments/assets/718fbd3a-ac35-42ab-9fa9-dbbc2c2b019f" />
+=======
+# mini-furniture-store
+>>>>>>> e9663fa (Initial commit)
