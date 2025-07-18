@@ -29,7 +29,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="w-[80%] m-auto">
+    <div className="w-[70%] m-auto">
       <div>
         <Slider {...setting}>
           {banners.map((value, index) => (

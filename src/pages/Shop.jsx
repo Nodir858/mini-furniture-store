@@ -8,8 +8,14 @@ import Modal from "../common/Modal";
 const Shop = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [item, setItem] = useState(products);
+  const handleOpen = (productId) => {
+    setIsModalOpen(productId);
+  };
 
+  const handleClose = () => {
+    setIsModalOpen(null);
+  };
+  const [item, setItem] = useState(products);
   const categoryList = Array.from(
     new Set(products.map((product) => product.category))
   );
@@ -18,42 +24,64 @@ const Shop = () => {
     new Set(products.map((product) => product.brand))
   );
 
-  const filterItems = (items) => {
-    const newItems = products.filter((newValue) => newValue.category === item);
+  const filterItems = (value) => {
+    const newItems = products.filter((newValue) => newValue.category === value);
     setItem(newItems);
   };
 
-  const handleOpen = (productId) => {
-    setIsModalOpen(productId);
-  };
-
-  const handleClose = () => {
-    setIsModalOpen(null);
+  const filterByBrands = (value) => {
+    const newBrands = products.filter((brand) => brand.brand === value);
+    setItem(newBrands);
   };
 
   return (
     <>
       <div className="flex">
         <div className="w-full max-w-3xs">
-          <div className=" bg-amber-300 h-full ">
+          <div className=" bg-whites h-full text-center leading-7 shadow-2xl rounded-2xl px-5 py-3">
             <div className="my-4">
               <h1 className="text-4xl font-semibold text-center">Filter</h1>
             </div>
             <div>
-              <h1 className="text-center">By Category</h1>
+              <h1 className="text-center text-xl mb-3">By Category</h1>
               <div className="text-center">
-                {categoryList.map((category, index) => (
-                  <div key={index}>
-                    <button>{category}</button>
+                {categoryList.map((value, index) => (
+                  <div
+                    key={index}
+                    className="bg-amber-300 rounded-2xl mb-2 cursor-pointer"
+                  >
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => filterItems(value)}
+                    >
+                      {value}
+                    </button>
                   </div>
                 ))}
               </div>
-              <div>
-                {brandsList.map((brands, index) => (
-                  <div key={index}>
-                    <button>{brands}</button>
+              <div className="text-center mt-5">
+                <h1 className="text-xl mb-3">By Brands</h1>
+                {brandsList.map((value, index) => (
+                  <div
+                    key={index}
+                    className="bg-amber-300 rounded-2xl mb-2 cursor-pointer"
+                  >
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => filterByBrands(value)}
+                    >
+                      {value}
+                    </button>
                   </div>
                 ))}
+              </div>
+              <div className="mt-7">
+                <button
+                  className="border w-full rounded-2xl"
+                  onClick={() => setItem(products)}
+                >
+                  <h1 className="cursor-pointer">All</h1>
+                </button>
               </div>
             </div>
           </div>
@@ -63,7 +91,7 @@ const Shop = () => {
             You are in Kitchen
           </h1>
           <div className="grid grid-cols-4 gap-3">
-            {products.map((value, index) => (
+            {item.map((value, index) => (
               <div key={index} className="mt-3">
                 <div className="overflow-hidden relative">
                   <div className="img relative">

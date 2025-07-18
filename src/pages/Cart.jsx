@@ -139,7 +139,7 @@ const Cart = () => {
                     <Link>Proceed to checkout</Link>
                   </div>
                   <div className="bg-red-600 py-1 px-3 text-white rounded-lg">
-                    <Link>Continue Shopping</Link>
+                    <Link to="/">Continue Shopping</Link>
                   </div>
                 </div>
               </div>
