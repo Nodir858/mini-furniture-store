@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-DEMO : https://mini-furniture-store.vercel.app/
-
 # React + Vite
+
+Technologies used:React.js,Redux Toolkit, React-dom tailwind css
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
