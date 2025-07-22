@@ -17,14 +17,17 @@ const FlashSale = () => {
   };
 
   return (
-    <div className="w-[70%] m-auto">
+    <div className="md:w-[70%] md:m-auto">
       <h1 className="text-center text-3xl font-extrabold uppercase mt-4">
         You are in Kitchen
       </h1>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-3">
         {products.map((value, index) => (
-          <div key={index} className="mt-3">
-            <div className="overflow-hidden relative">
+          <div
+            key={index}
+            className="h-105 w-86 m-auto md:h-auto md:w-auto md:mt-3"
+          >
+            <div className="relative">
               <div className="img relative">
                 <div className="rounded-3xl">
                   <img src={value.img} alt="img" className="rounded-3xl" />
@@ -48,7 +51,7 @@ const FlashSale = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-2">
+              <div className="md:mt-2">
                 <p className="mb-2">{value.title}</p>
                 <p>${value.price}</p>
               </div>

@@ -31,7 +31,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
           style={{
             transform: `translateX(${isSidebarOpen ? "0%" : "100%"})`,
           }}
-          className="fixed top-0 right-0 h-full w-1/4 bg-white shadow-lg transition-transform duration-300 ease-in-out overflow-y-auto "
+          className="fixed top-0 right-0 h-full w-2/3 md:w-1/4 bg-white shadow-lg transition-transform duration-300 ease-in-out overflow-y-auto "
         >
           <div className="border-b mb-4">
             <h1 className="text-3xl p-4">Your cart</h1>

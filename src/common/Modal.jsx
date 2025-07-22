@@ -59,15 +59,15 @@ const Modal = ({ isModalOpen, handleClose, data }) => {
     <div>
       {isModalOpen && (
         <div className="modal-overlay">
-          <div className="w-[70%] relative p-5 bg-white overflow-hidden">
+          <div className="w-auto relative p-5 bg-white overflow-hidden">
             <span
               className="absolute cursor-pointer top-1 right-0 p-3"
               onClick={() => handleClose()}
             >
               <FaTimes></FaTimes>
             </span>
-            <div className="flex">
-              <div className="h-[15rem] flex flex-end">
+            <div className="md:flex">
+              <div className="w-76 m-auto md:w-[15rem] md:flex">
                 <img src={data.img} alt="img" className="" />
               </div>
               <div className="ml-6">

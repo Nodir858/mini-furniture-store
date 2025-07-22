@@ -43,25 +43,29 @@ const Header = () => {
         sticky ? "py-4 shadow-xl" : ""
       }`}
     >
-      <div className="relative flex flex-wrap justify-between items-center px-3 py-2">
-        <div className="ml-10">
+      <div className="relative flex flex-wrap flex-col justify-between items-center px-3 py-2 md:flex-row ">
+        <div className="w-full flex justify-start text-4xl md:w-0 md:text-base sm:ml-7">
           <div className="logo font-bold">miniture</div>
         </div>
-        <div className="flex flex-wrap text-base py-3">
+        <div className="flex flex-wrap flex-col gap-4 py-3 text-3xl md:text-xl text-center md:flex-row">
           {navbar.map((value, key) => (
-            <div key={key} className="mr-5">
+            <div
+              key={key}
+              className="cursor-pointer mr-5 border-1 px-20 rounded-2xl active:bg-amber-600 transition duration-200 md:active:bg-amber-50 md:border-0 md:px-0"
+            >
               <Link to={value.path}>{value.nav}</Link>
             </div>
           ))}
         </div>
-        <li className="flex">
-          <Link className="mr-5 text-2xl">
+
+        <li className="flex text-3xl absolute right-1 top-4 md:text-2xl md:relative md:right-0 md:top-0">
+          <Link className="mr-5">
             <FaHeart></FaHeart>
           </Link>
-          <Link className="mr-5 text-2xl">
+          <Link className="mr-5">
             <FaRegUser />
           </Link>
-          <Link className="relative mr-5 text-2xl" onClick={toggleSidebar}>
+          <Link className="relative mr-5" onClick={toggleSidebar}>
             <MdOutlineShoppingBag />
             <div className="absolute flex justify-center items-center text-center top-[-10px] right-[-10px] text-sm bg-amber-400 rounded-full w-[25px] h-[25px]">
               <span>{totalItems}</span>

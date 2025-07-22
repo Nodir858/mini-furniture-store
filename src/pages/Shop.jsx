@@ -37,7 +37,7 @@ const Shop = () => {
   return (
     <>
       <div className="flex">
-        <div className="w-full max-w-3xs">
+        <div className="w-40 lg:w-full lg:max-w-3xs">
           <div className=" bg-whites h-full text-center leading-7 shadow-2xl rounded-2xl px-5 py-3">
             <div className="my-4">
               <h1 className="text-4xl font-semibold text-center">Filter</h1>
@@ -90,12 +90,12 @@ const Shop = () => {
           <h1 className="text-center text-3xl font-extrabold uppercase mt-4">
             You are in Kitchen
           </h1>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 gap-3 lg:grid-cols-4">
             {item.map((value, index) => (
               <div key={index} className="mt-3">
-                <div className="overflow-hidden relative">
-                  <div className="img relative">
-                    <div className="rounded-3xl">
+                <div className="relative">
+                  <div className="h-66 w-66 m-auto relative lg:relative lg:h-auto lg:w-auto">
+                    <div className="lg:rounded-3xl lg:h-auto lg:w-auto">
                       <img src={value.img} alt="img" className="rounded-3xl" />
                     </div>
                     <div className="opacity-75 absolute top-0 right-0 m-4">

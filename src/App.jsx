@@ -15,7 +15,7 @@ function App() {
   const cartItems = useSelector((state) => state.cart.data);
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -31,7 +31,7 @@ function App() {
       </Routes>
 
       <Footer></Footer>
-    </>
+    </div>
   );
 }
 
